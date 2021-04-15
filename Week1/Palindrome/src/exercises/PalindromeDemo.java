@@ -1,4 +1,4 @@
-package examples;
+package exercises;
 
 public class PalindromeDemo {
     public static void main(String[] args) {
