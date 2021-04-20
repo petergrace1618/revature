@@ -1,1 +1,1 @@
-# revature
+# Revature weekly exercises
