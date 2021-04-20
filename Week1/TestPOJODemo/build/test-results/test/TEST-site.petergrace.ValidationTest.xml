@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.petergrace.ValidationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-04-16T06:58:08" hostname="IAMYOURUNDEROOS" time="0.034">
+  <properties/>
+  <testcase name="testIsFibonacciThrowsException()" classname="site.petergrace.ValidationTest" time="0.023"/>
+  <testcase name="testIsFibonacciInvalid()" classname="site.petergrace.ValidationTest" time="0.004"/>
+  <testcase name="testIsFibonacciValid()" classname="site.petergrace.ValidationTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

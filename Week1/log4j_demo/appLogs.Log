@@ -1,0 +1,39 @@
+2021-04-16 13:49:05,695 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:49:05,697 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:49:05,697 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:49:05,697 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:49:30,466 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:49:30,467 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:49:30,467 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:49:30,467 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:50:02,357 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:50:02,358 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:50:02,358 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:50:02,358 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:51:42,126 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:51:42,127 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:51:42,127 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:51:42,127 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:53:31,447 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:53:31,448 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:53:31,448 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:53:31,448 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:53:31,449 [INFO] {org.log4j.demo.Service} service1: testservice1
+2021-04-16 13:53:57,655 [INFO] {org.log4j.demo.Main} INFO
+2021-04-16 13:53:57,657 [WARN] {org.log4j.demo.Main} WARN
+2021-04-16 13:53:57,657 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-16 13:53:57,657 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-16 13:53:57,658 [INFO] {org.log4j.demo.Service} service1: testservice1
+2021-04-16 13:53:57,658 [INFO] {org.log4j.demo.Service} service2: testservice2
+2021-04-19 07:57:30,381 [INFO] {org.log4j.demo.Main} INFO
+2021-04-19 07:57:30,390 [WARN] {org.log4j.demo.Main} WARN
+2021-04-19 07:57:30,390 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-19 07:57:30,390 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-19 07:57:30,391 [INFO] {org.log4j.demo.Service} service1: testservice1
+2021-04-19 07:57:30,391 [INFO] {org.log4j.demo.Service} service2: testservice2
+2021-04-19 07:58:20,836 [INFO] {org.log4j.demo.Main} INFO
+2021-04-19 07:58:20,837 [WARN] {org.log4j.demo.Main} WARN
+2021-04-19 07:58:20,837 [ERROR] {org.log4j.demo.Main} ERROR
+2021-04-19 07:58:20,837 [FATAL] {org.log4j.demo.Main} FATAL
+2021-04-19 07:58:20,838 [INFO] {org.log4j.demo.Service} service1: testservice1
+2021-04-19 07:58:20,838 [INFO] {org.log4j.demo.Service} service2: testservice2

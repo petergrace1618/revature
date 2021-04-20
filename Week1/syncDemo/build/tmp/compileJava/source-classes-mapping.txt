@@ -1,0 +1,6 @@
+site/petergrace/exercises/SyncMain.java
+ site.petergrace.exercises.SyncMain
+site/petergrace/exercises/Pages.java
+ site.petergrace.exercises.Pages
+site/petergrace/exercises/Printer.java
+ site.petergrace.exercises.Printer

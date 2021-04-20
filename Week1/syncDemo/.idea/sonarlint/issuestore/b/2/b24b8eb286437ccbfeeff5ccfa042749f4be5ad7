@@ -1,0 +1,9 @@
+
+U
+java:S1118":Add a private constructor to hide the implicit public one.(º¥¯Ùùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÄŸ¹¨
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+Y
+java:S2276"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(ïÈ˜‚
+N	java:S106"9Replace this use of System.out or System.err by a logger.(´òÜ

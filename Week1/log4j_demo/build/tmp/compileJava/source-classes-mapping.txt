@@ -1,0 +1,4 @@
+org/log4j/demo/Service.java
+ org.log4j.demo.Service
+org/log4j/demo/Main.java
+ org.log4j.demo.Main

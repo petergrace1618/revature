@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.ValidationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-04-15T23:57:57" hostname="IAMYOURUNDEROOS" time="0.03">
+  <properties/>
+  <testcase name="testIsPrimeForLessThan2()" classname="org.example.ValidationTest" time="0.022"/>
+  <testcase name="testIsPrimeInvalid()" classname="org.example.ValidationTest" time="0.003"/>
+  <testcase name="testIsPrimeValid()" classname="org.example.ValidationTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
