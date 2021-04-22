@@ -5,6 +5,7 @@
 ------------------------
 -- Solutions to problems listed on 
 -- https://sqlzoo.net/wiki/More_JOIN_operations
+-- Table data available here https://sqlzoo.net/euro2012.sql
 -------------------------
 
 -- Entity relationship diagram
@@ -17,7 +18,7 @@
 -- casting(movieid PK FK, actorid PK FK, ord)
 --   movieid -> movie.id
 --   actorid -> actor.id
-------------------------
+------------------------------
 
 --15. List all the people who have worked with 'Art Garfunkel'. 
 
