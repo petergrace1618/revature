@@ -1,14 +1,14 @@
 
-S	java:S106,"9Replace this use of System.out or System.err by a logger.(°£ƒøÿÿÿÿ
 H
 java:S4925
 "-Remove this "Class.forName()", it is useless.(õ†¨Äùÿÿÿÿ
 j
 java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ğúÿÿÿÿ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
 ^
 java:S2259+"HA "NullPointerException" could be thrown; "connection" is nullable here.(ôêÂœ
 S	java:S106"9Replace this use of System.out or System.err by a logger.(”Ôó±øÿÿÿÿ
-S	java:S106'"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
-S	java:S106."9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
 N	java:S106"9Replace this use of System.out or System.err by a logger.(ô®ìö
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(°£ƒøÿÿÿÿ
 S	java:S106$"9Replace this use of System.out or System.err by a logger.(¥ÈâÃıÿÿÿÿ
+S	java:S106."9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ

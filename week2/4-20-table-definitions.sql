@@ -22,7 +22,7 @@ CREATE TABLE employee_schema.employee (
 DROP TABLE employee_schema.department;
 
 CREATE TABLE employee_schema.department (
-	deptid int4 NOT NULL,
+	deptid serial NOT NULL,
 	"name" varchar(20) NOT NULL,
 	base_location varchar(25) NOT NULL,
 	CONSTRAINT department_pk PRIMARY KEY (deptid)

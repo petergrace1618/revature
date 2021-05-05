@@ -1,0 +1,105 @@
+AJAX is used to make asynchronous requests to backend server and server will consume the request and generate an appropriate response. AJAX can be used to modify any content of the page without refreshing it. AJAX works like a callback function. It sends the data to the server via the url/uri (endpoint) with https/https protocol methods/verbs. AJAX is not a programming language but is a builtin browser object.
+XMLHttpRequest object is used to make http calls to server.
+
+=======
+
+take in data on form 
+html attribute to set up post req to send to javalin
+---
+http methods
+create - POST
+read - get
+update - put/patch (idempotent)
+delete - delete
+others: head, options, trace, connect
+
+response object: response data and status code, or status code and status message
+
+distributed app requirements:
+db, computer, security layer, hardware, networking, infrastructure, platform(os), logical components like functions, softwares
+
+distributed apps are maintained either on-premises or on cloud
+===========
+HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
+Clients and servers communicate by exchanging individual messages (as opposed to a stream of data). The messages sent by the client, usually a Web browser, are called requests and the messages sent by the server as an answer are called responses.
+Designed in the early 1990s, HTTP is an extensible protocol which has evolved over time. It is an application layer protocol that is sent over TCP, or over a TLS-encrypted TCP connection
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
+
+TCP (Transmission Control Protocol) is an important network protocol that lets two hosts connect and exchange data streams.  TCP guarantees the delivery of data and packets in the same order as they were sent.  Vint Cerf and Bob Kahn, who were DARPA scientists at the time, designed TCP in the 1970s.
+TCP role is to ensure the packets are reliably delivered, error free.  TCP has concurrence control, which means the initial requests start small, increasing in size to the levels of bandwidth the computers, servers, and network can support.
+https://developer.mozilla.org/en-US/docs/Glossary/TCP
+========
+HTTP status codes:
+1xx informational 
+	100 Continue. Signifies that the server has received the request headers and the client should proceed to send request body (in the case of a request where a body needs to be sent, e.g. POST)
+2xx successful
+	200 OK. Standard response for successful HTTP request.
+3xx redirect
+	301 Moved Permanently. This and all future requests should be directed to the given URL.
+4xx client error
+	404 Not Found. The requested resource could not be found but may be found in the future. Subsequent requests by the client are permissible. 
+5xx server error
+	500 Internal Server Error. A generic error message used when an unexpected condition was encountered and no more specific message is suitable.
+======
+REST API
+It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000
+https://restfulapi.net/
+
+MEAN stack: mongo express angular node
+MERN: mongo express react node
+
+XMLHttpRequest() -> constructor used to create a xhr object
+send() for GET/DELETE requests and send(string) used for POST/PUT
+abort() terminates the request
+open(httpmethod, url/endpoint, async (true/false), username, password)
+setRequestHeader() any header meta information about the client which you want to send to server
+getRequestHeader() to read the header or meta information 
+---
+soa
+architectural style. like an interface. 
+producer and consumer. can be written in any language. they communicate over internet, network or protocol. 
+soa is independent of protocol. 
+xml is strictly typed dtd. html is forgiving of syntax mistakes. 
+all programming langs can understand and parse xml. even legacy mainframes. 
+SOAP: simple object access protocol. a messaging protocol implements SOA. SOA provides the standard, SOAP implements the standard. 
+.wsdl: web service description language. an xml file
+soap as default exception handing mechanism. 
+soap has builtin security by default
+====
+structure of soap message:
+<soap:envelope> - mandatory
+  <soap:head> - optional
+ head tag conveys metadata and security features to identify communication between consumer and producer. 
+  </soap:head>
+  <soap:body> mandatory. can give input messages to server and output from server comes in the soap body itself. 
+  </soap:body>
+  <soap:fault> optional. used for error handling </soap:fault>
+</soap:envelope>
+HTML is the standard markup language for creating Web pages. HTML describes the structure of a Web page. HTML consists of a series of elements. HTML elements tell the browser how to display the content.
+---
+Roy Fielding in 2000 proposed RESTful services. Representational State and Transfer. an architectural style. comm between client/server using only http url/uri and combination of http verbs. communicates via readable xml, json, plain text
+providers
+
+providers of soap: jax-ws: java api xml for web services (soap style), spring web services
+---
+POST (create) /employee
+GET (read) /employee/{id}
+PUT (update) /employee
+DELETE /employee/{id}
+
+what makes a pure restful service?
+6 REST architectural constraints
+- uniform index/interface. rest endpoint naming convention.
+- client-server architecture
+- layered architecture. separation of concerns. presentation, business, data access, security.
+- caching. temporary memory/storage. 
+- stateless. http is stateless. this is solved by session/cookie information on client side. 
+- code on demand (optional). ?
+implementing all six makes a pure restful but violating one or more doesn't mean your app isn't restful. 
+---
+MVC
+Java Server Pages equivalent to Razor in C#
+---
+Javalin: lightweight web framework for Kotlin and Java. Supports handling requests from client and generates the responses. Is built on Jetty server. jetty is a container for javalin. it does http calls suitable for developing rest apis. 
+---
+CORS: cross origin resource server

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch demo</title>
+</head>
+<body>
+  <div id="id">
+    <input type="button" id="btnGetUsers" value="Get all Git users">
+    <br>
+    <input type="button" id="btnGetUser" value="Get Git user by ID">
+    <input type="text" id="txtUserId">
+    <br>
+    <p id='status'></p>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    let btnGetUsers = document.querySelector('#btnGetUsers');
+    let btnGetUser = document.querySelector('#btnGetUser');
+    let status = document.querySelector('#status');
+    let results = document.querySelector('#results');
+
+    btnGetUsers.addEventListener('click', ()=>{
+      let url = "https://api.github.com/users";
+      fetch(url)
+        .then(response => response.json())
+        .then(response => showUsers(response));
+    });
+
+    btnGetUser.addEventListener('click', ()=>{
+      let id = document.querySelector('#txtUserId').value.trim();
+      if (!id || !Number.parseInt(id)) { 
+        results.innerHTML = '<span style="color: red">Id field cannot be empty</span>';
+        return;
+      }
+      let url = "https://api.github.com/user/"+id;
+      fetch(url)
+        .then(response => response.json())
+        .then(response => showUser(response));
+    });
+
+    function showUsers(r) {
+      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
+      r.forEach(el => {
+        data += `<tr><td>${el.id}</td>`;          
+        data += `<td>${el.login}</td>`;
+        data += `<td><img src='${el.avatar_url}' alt="${el.login}'s avatar" height='100px' width='100px'/></td></tr>`;
+      });
+      data += '</table>';
+      results.innerHTML = data;
+    }
+
+    function showUser(r) {
+      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
+      data += `<tr><td>${r.id}</td>`;          
+      data += `<td>${r.login}</td>`;
+      data += `<td><img src='${r.avatar_url}' alt="${r.login}'s avatar" height='100px' width='100px'/></td></tr>`;
+      data += '</table>';
+      results.innerHTML = data;
+    }
+  </script>
+</body>
+</html>

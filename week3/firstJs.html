@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="results">
+
+  </div>
+  <button id="btn1">Get all Git users</button>
+  <script>
+    btn1.addEventListener('click', ()=>{
+      let url = 'https://api.github.com/users/1';
+      let xhr = XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onload = ()=>{
+        if(this.ready===4 && this.status===200){
+          let result = JSON.parse(this.responseText);
+        }
+      }
+      xhr.send();
+    })
+  </script>
+</body>
+</html>

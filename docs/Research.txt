@@ -1,0 +1,50 @@
+Things to Research
+==================
+
+what's new in es6
+----
+1. Recreate the GitHub
+2. Perform all of the Request types with FAKE API
+3. Recreate the API  by picking one of them from public api link
+4. Beautify it, minimally
+===
+know category of http status codes
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+*
+Mockito
+*
+SonarLint for IntelliJ
+*
+design patterns: 
+creational: singleton, builder, factory 
+*
+QC
+default access modifier
+abstraction, abstract classes
+default in interface
+collections hierarchy
+generics
+how strings stored in memory: stored as char arrays. arrays are immutable. when string are concatenated, a new char array is allocated.
+functional interface defines a single abstract method and one of more default methods.
+order of overloading:
+
+Vector, 
+how does Set prevent duplicates, 
+how does priority queue work
+how does priority queue compare with LinkedList
+Why to use a singleton
+
+2.Brush up Client - server architecture we learn last week and also on what is Web Services
+3.SOA(Service Oriented Architecture) -> This is Web Services itself but read about SOA
+4.Richardson Maturity Model
+5.What is HTML?
+6.HTML4 Vs HTML5
+7.New features of HTML5
+8.Explore few basic tags in HTML from w3schools.com
+9.Why CSS?
+
+difference between sax and dom parser
+js string functions
+create registration page
+use js and regex to validate
+http methods

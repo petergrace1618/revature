@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms JS Demo</title>
+</head>
+<body>
+  <form action="" id='form' onsubmit='return validate();'>
+    <input type="text" name='txtName' autocomplete="off">
+    <input type="submit" id="sub">
+    <br><span id="validation-text" style="color: red;"></span>
+  </form>
+  <hr>
+  <output style='height: 1.5em; width: 50em; border: 1px solid gray;'></output>
+  <script>
+    let form = document.getElementById('form');
+    let txtName = document.getElementById('form').elements['txtName'];
+    let out = document.getElementsByTagName('output')[0];
+    
+    txtName.addEventListener('input', ()=>{
+      out.innerText = txtName.value.trim();
+    });
+    
+    form.addEventListener("submit", ()=>{
+      let name = txtName.value.trim();
+      if (name) {
+        out.innerText = `Submitted: ${name}`;
+        out.innerText = '';
+        return true;
+      } else {
+        out.innerText = `Not submitted: ${name}`;
+        document.getElementById('validation-text').innerText = 'Name cannot be empty';
+        return false;
+      }      
+    });
+    
+    function validate() {
+      let name = txtName.value.trim();
+      if (name) {
+        out.innerText = `Submitted: ${name}`;
+        out.innerText = '';
+        return true;
+      } else {
+        out.innerText = `Not submitted: ${name}`;
+        document.getElementById('validation-text').innerText = 'Name cannot be empty';
+        return false;
+      }      
+    }
+  </script>
+</body>
+</html>

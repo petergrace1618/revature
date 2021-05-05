@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise Demo</title>
+</head>
+<body>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <script>
+    let prom1 = new Promise((resolve)=>{
+      p1.innerHTML = "in promise"
+      setTimeout(()=>{
+        resolve("promise")
+      }, 3000);
+    });
+  
+    prom1.then((value)=>{
+      p2.innerHTML = 'in then';
+    });
+
+  </script>
+</body>
+</html>

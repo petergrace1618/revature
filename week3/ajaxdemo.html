@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="id">
+    <input type="button" value="Get all Git users" id="btnGetUsers">
+    <br>
+    <input type="button" value="Get Git user by ID" id="btnGetUser">
+    <input type="text" id="txtUserId" pattern="[0-9]+">
+    <br>
+    <p id='status'></p>
+    <div id="results"></div>
+  </div>
+    
+  <script>
+    let status = document.querySelector('#status');
+    let results = document.querySelector('#results');
+
+    btnGetUsers.addEventListener('click', ()=>{
+      let url = "https://api.github.com/users";
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.send();
+      
+      xhr.onload = function(ev) {
+        showUsers(this);
+      };
+    });
+    
+    btnGetUser.addEventListener('click', ()=>{      
+      let id = document.querySelector('#txtUserId').value.trim();
+      if (!id || !Number.parseInt(id)) { 
+        results.innerHTML = '<span style="color: red">Id field cannot be empty</span>';
+        return;
+      }      
+      let url = "https://api.github.com/user/"+id;
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.send();
+      
+      xhr.onload = function(ev) {
+        showUser(this);
+      };
+    });
+
+    function showUsers(xhr) {
+      status.innerHTML = 
+          `ReadyState: ${xhr.readyState}, `+
+          `Status: ${xhr.status}, `+
+          `StatusText: '${xhr.statusText}'', `+
+          `ResponseType: '${xhr.responseType.toString()}'`;
+      
+      let responseJson = JSON.parse(xhr.responseText);
+      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
+      responseJson.forEach(el => {
+        data += `<tr><td>${el.id}</td>`;          
+        data += `<td>${el.login}</td>`;
+        data += `<td><img src='${el.avatar_url}' alt="${el.login}'s avatar" height='100px' width='100px'/></td></tr>`;
+      });
+      data += '</table>';
+      results.innerHTML = data;
+    }
+
+    function showUser(xhr) {
+      status.innerHTML = 
+          `ReadyState: ${xhr.readyState}, `+
+          `Status: ${xhr.status}, `+
+          `StatusText: '${xhr.statusText}'', `+
+          `ResponseType: '${xhr.responseType.toString()}'`;
+      
+      let user = JSON.parse(xhr.responseText);
+
+      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
+      data += `<tr><td>${user.id}</td>`;          
+      data += `<td>${user.login}</td>`;
+      data += `<td><img src='${user.avatar_url}' alt="${user.login}'s avatar" height='100px' width='100px'/></td></tr>`;
+      data += '</table>';
+      results.innerHTML = data;
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

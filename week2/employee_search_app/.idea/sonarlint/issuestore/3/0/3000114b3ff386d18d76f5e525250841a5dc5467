@@ -1,0 +1,29 @@
+
+c
+java:S1192"GDefine a constant instead of duplicating this literal "deptid" 3 times.(ğªõ:8Ô¿çÅ/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ğúÿÿÿÿ8†äÃ/
+i
+java:S1192'"GDefine a constant instead of duplicating this literal "gender" 3 times.(à´‹Êøÿÿÿÿ8Ô¿çÅ/
+p
+java:S1192"NDefine a constant instead of duplicating this literal "base_location" 3 times.(—Ôúÿÿÿÿ8Ô¿çÅ/
+j
+java:S1192%"HDefine a constant instead of duplicating this literal "contact" 3 times.(ó½æŞÿÿÿÿÿ8Ô¿çÅ/
+n
+java:S1192,"QDefine a constant instead of duplicating this literal "Internal error: " 3 times.(•Š¯Ã8Ô¿çÅ/
+q
+java:S20958"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ğúÿÿÿÿ8Ô¿çÅ/
+j
+java:S1192&"NDefine a constant instead of duplicating this literal "employee_name" 3 times.(ÅÏœb8Ô¿çÅ/
+m
+java:S1192"PDefine a constant instead of duplicating this literal "department_name" 3 times.(úş•´8Ô¿çÅ/
+`
+java:S1155J">Use isEmpty() to check whether the collection is empty or not.(—¶¿˜ıÿÿÿÿ8Ô¿çÅ/
+¬
+java:S1192"Define a constant instead of duplicating this literal "d.name as department_name, d.base_location from employee_schema.employee as e " 3 times.(æÒ 8Ô¿çÅ/
+`
+java:S1155k">Use isEmpty() to check whether the collection is empty or not.(—¶¿˜ıÿÿÿÿ8³ú´Å/
+±
+java:S1192"“Define a constant instead of duplicating this literal "select id, e.name as employee_name, e.age, e.contact, e.city, e.gender, e.deptid, " 3 times.(¥£‰ê8Ô¿çÅ/
+q
+java:S2095Z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ğúÿÿÿÿ8•Â®Å/
