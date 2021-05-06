@@ -2,13 +2,7 @@ plugins {
     id 'java'
 }
 
-task runjar(type: JavaExec) {
-    main = 'org.example.Demo'
-    classpath = sourceSets.main.runtimeClasspath
-//    args 'appArg1' // args to main()
-}
-
-group 'org.example'
+group 'main'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -33,3 +27,10 @@ jar {
         )
     }
 }
+
+task runjar(type: JavaExec) {
+    main = 'main.Demo'
+    classpath = sourceSets.main.runtimeClasspath
+//    args 'appArg1' // args to main()
+}
+
