@@ -1,8 +1,16 @@
 JAVA
 =========
+Javalin: lightweight web framework for Kotlin and Java. Supports handling requests from client and generates the responses. Is built on Jetty server. jetty is a container for javalin. it does http calls suitable for developing rest apis. 
+---
+Kotlin is a general purpose, free, open source, statically typed “pragmatic” programming language initially designed for the JVM (Java Virtual Machine) and Android that combines object-oriented and functional programming features.
+https://www.infoworld.com/article/3224868/what-is-kotlin-the-java-alternative-explained.html
+Kotlin is more concise. It’s also more type-safe, e.g. support for non-nullable types makes applications less prone to NPE’s.
+https://kotlinlang.org/docs/faq.html#is-kotlin-an-object-oriented-language-or-a-functional-one
+======
 stack vs heap
 https://www.journaldev.com/4098/java-heap-space-vs-stack-memory
 =======
+Lambda expressions
 In languages that support first class functions, the type of the lambda expression would be a function; but in Java, the lambda expressions are represented as objects, and so they must be bound to a particular object type known as a functional interface. This is called the target type.
 Since a functional interface can only have a single abstract method, the types of the lambda expression parameters must correspond to the parameters in that method, and the type of the lambda body must correspond to the return type of this method. Additionally, any exceptions thrown in the lambda body must be allowed by the throws clause of this method in the functional interface.
 =========
@@ -236,16 +244,3 @@ System.identityHashCode(x)
 String s1 = new String("hello");
 // move back into common string pool
 s1=s1.intern();
----
-Slack Two-Factor Authentication Backup Codes
-
-543117
-112947
-571434
-811055
-999009
-951731
-808697
-513381
-996002
-550327

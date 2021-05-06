@@ -6,6 +6,7 @@ public class HelloJavalin {
     public static void main(String[] args) {
         Javalin app = Javalin.create().start(8000);
         app.get("/", ctx -> ctx.result("hello GET"));
+        app.get("/fuck", ctx -> ctx.result("FUCK!!! "));
 
         System.out.println("check out http://localhost:8000");
 

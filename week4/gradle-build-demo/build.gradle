@@ -2,6 +2,12 @@ plugins {
     id 'java'
 }
 
+task runjar(type: JavaExec) {
+    main = 'org.example.Demo'
+    classpath = sourceSets.main.runtimeClasspath
+//    args 'appArg1' // args to main()
+}
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -19,14 +25,11 @@ test {
 }
 
 jar {
-    archiveBaseName = 'gradle-build-demo'
-    archiveVersion =  '0.1.0'
+//    archiveBaseName = 'gradle-build-demo'
+//    archiveVersion =  '0.1.0'
     manifest {
         attributes(
-                'Main-Class': Dummy'
+                'Main-Class': 'Dummy'
         )
     }
-//    from {
-//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-//    }
 }

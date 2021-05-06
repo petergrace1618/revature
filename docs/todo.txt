@@ -1,5 +1,16 @@
 Things to Research
 ==================
+create a jenkins project for executing gradle project.... gradle build, gradle test
+=====
+https://www.oracle.com/technical-resources/articles/javase/soa.html
+Service-Oriented Architecture (SOA) and Web Services: The Road to Enterprise Application Integration (EAI)
+========
+frontend
+	html
+	styles
+		css
+	scripts
+		js
 
 what's new in es6
 ----
@@ -7,13 +18,18 @@ what's new in es6
 2. Perform all of the Request types with FAKE API
 3. Recreate the API  by picking one of them from public api link
 4. Beautify it, minimally
+
+using javalin
+1. create the endpoints in the backend. 
+	/employee /employee/:id /employees /employees/:age
+2. consume on postman first
+3. create js frontend	
+
 ===
 know category of http status codes
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 *
 Mockito
-*
-SonarLint for IntelliJ
 *
 design patterns: 
 creational: singleton, builder, factory 
@@ -27,7 +43,7 @@ generics
 how strings stored in memory: stored as char arrays. arrays are immutable. when string are concatenated, a new char array is allocated.
 functional interface defines a single abstract method and one of more default methods.
 order of overloading:
-
+======
 Vector, 
 how does Set prevent duplicates, 
 how does priority queue work

@@ -1,3 +1,47 @@
+Jenkins url on EC2 instance: 
+http://ec2-3-143-219-26.us-east-2.compute.amazonaws.com:8080/
+
+=======
+AWS
+---
+PaaS, SaaS
+
+RDS: aws aurora, postgresql, oracle, mysql
+
+NoSQL db: document oriented db (mondodb), key oriented db (dynamodb) store data in key-value pair
+
+EC2 (elastic cloud and compute): service like a computer on the cloud. It has an OS, CPU, RAM, network. IaaS. only enabled from port 22.
+
+VPC (virtual private cloud) helps you build a virtual network in clopud where no VPN hardware data center is required. 
+
+AMI amazon machine image
+
+ELB (elastic load balancer) auto scaling increases the number of instances of EC2. vertical scaling increases speed/power of cpu/ram/etc. horizontal scaling increases the number of instances. 
+
+EBS (elastic block store): hardware storage for EC2. 
+
+S3 bucket (Simple storage service) like google drive on AWS.
+
+Route 53. DNS system and hosting service.
+
+IAM (Identity Access Management) Role-based management. about granting/revoking permissions for users, groups
+
+CloudWatch. monitoring tool through which you can monitor all the resources and utilization in your various instances created by you. SaaS. Helps with cost analysis. An application running on EC2 it can track the logs from your application and raise trigger or alarm. 
+
+Lambda. FaaS. Serverless. SQS (simple queue service). SNS (simple notification service)
+
+ECS (Elastic Container Service) it's running, scaling, and securing Docker applications. 
+
+EKS (Elastic Kubernetes Service Orchestration) 
+--- 
+when you want to create an ec2 you need an AMI. PaaS. 
+
+Security group (firewall, inbound/outbound rules)
+
+=======
+front controller design pattern
+In the context of MVC, the FrontController handles all requests and responses to and from the web application. It acts as a proxy to the model and view.
+========
 AJAX is used to make asynchronous requests to backend server and server will consume the request and generate an appropriate response. AJAX can be used to modify any content of the page without refreshing it. AJAX works like a callback function. It sends the data to the server via the url/uri (endpoint) with https/https protocol methods/verbs. AJAX is not a programming language but is a builtin browser object.
 XMLHttpRequest object is used to make http calls to server.
 
@@ -16,7 +60,7 @@ others: head, options, trace, connect
 response object: response data and status code, or status code and status message
 
 distributed app requirements:
-db, computer, security layer, hardware, networking, infrastructure, platform(os), logical components like functions, softwares
+db, computer, security layer, hardware, networking, infrastructure, platform(os), logical components like functions, software
 
 distributed apps are maintained either on-premises or on cloud
 ===========
@@ -42,12 +86,36 @@ HTTP status codes:
 	500 Internal Server Error. A generic error message used when an unexpected condition was encountered and no more specific message is suitable.
 ======
 REST API
-It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000
+It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000. REST is a web service, SOAP is a web service. All web services are SOA.
 https://restfulapi.net/
+
+https://restfulapi.net/
+Principles of REST
+- Client–server – By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.
+- Stateless – Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client.
+	don't use server-side scripting tool to solve the statelessness of the client. let client use its own technique to solve the statelessness on client side.
+- Cacheable – Cache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.
+- Uniform interface (naming conventions)– By applying the software engineering principle of generality to the component interface, the overall system architecture is simplified and the visibility of interactions is improved. In order to obtain a uniform interface, multiple architectural constraints are needed to guide the behavior of components. 
+	REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; self-descriptive messages; and, hypermedia as the engine of application state.
+- Layered system – The layered system style allows an architecture to be composed of hierarchical layers by constraining component behavior such that each component cannot “see” beyond the immediate layer with which they are interacting.
+- Code on demand (optional) – REST allows client functionality to be extended by downloading and executing code in the form of applets or scripts. This simplifies clients by reducing the number of features required to be pre-implemented.
+
+implementing all six makes a pure restful but violating one or more doesn't mean your app isn't restful. 
+---
+providers of rest (libraries)
+JAX-RS, Java for XML-RESTful services. API name is Jersey API, Spring RS, Javalin
+---
+Servlet: server-side Java. capable of reading request made by a client and generate the response.  
+---
+POST (create) /employee
+GET (read) /employee/{id}
+PUT (update) /employee
+DELETE /employee/{id}
+---
 
 MEAN stack: mongo express angular node
 MERN: mongo express react node
-
+---
 XMLHttpRequest() -> constructor used to create a xhr object
 send() for GET/DELETE requests and send(string) used for POST/PUT
 abort() terminates the request
@@ -55,17 +123,14 @@ open(httpmethod, url/endpoint, async (true/false), username, password)
 setRequestHeader() any header meta information about the client which you want to send to server
 getRequestHeader() to read the header or meta information 
 ---
-soa
-architectural style. like an interface. 
-producer and consumer. can be written in any language. they communicate over internet, network or protocol. 
-soa is independent of protocol. 
-xml is strictly typed dtd. html is forgiving of syntax mistakes. 
-all programming langs can understand and parse xml. even legacy mainframes. 
-SOAP: simple object access protocol. a messaging protocol implements SOA. SOA provides the standard, SOAP implements the standard. 
-.wsdl: web service description language. an xml file
-soap as default exception handing mechanism. 
-soap has builtin security by default
-====
+https://www.oracle.com/technical-resources/articles/javase/soa.html
+SOA develped by W3C. architectural style. like an interface. Involves producer and consumer and broker in between that synchronizes producer and consumer. can be written in any language. they communicate over internet, network or protocol. SOA is independent of protocol. 
+XML is strictly typed DTD. HTML is forgiving of syntax mistakes. All programming languages can understand and parse XML, even legacy mainframes. 
+SOAP (simple object access protocol): Implementation of SOA created by W3C. a messaging protocol implements SOA all messages between client/server, producer/consumer, requester/responder can be sent using XML SOAP messages. SOA provides the standard, SOAP implements the standard. 
+WSDL: web service description language. an XML file
+SOAP as default exception handing mechanism. 
+SOAP has builtin security by default
+---
 structure of soap message:
 <soap:envelope> - mandatory
   <soap:head> - optional
@@ -80,26 +145,10 @@ HTML is the standard markup language for creating Web pages. HTML describes the 
 Roy Fielding in 2000 proposed RESTful services. Representational State and Transfer. an architectural style. comm between client/server using only http url/uri and combination of http verbs. communicates via readable xml, json, plain text
 providers
 
-providers of soap: jax-ws: java api xml for web services (soap style), spring web services
+providers of SOAP: JAX-WS, Java API for XML web services (soap style), spring web services
 ---
-POST (create) /employee
-GET (read) /employee/{id}
-PUT (update) /employee
-DELETE /employee/{id}
-
-what makes a pure restful service?
-6 REST architectural constraints
-- uniform index/interface. rest endpoint naming convention.
-- client-server architecture
-- layered architecture. separation of concerns. presentation, business, data access, security.
-- caching. temporary memory/storage. 
-- stateless. http is stateless. this is solved by session/cookie information on client side. 
-- code on demand (optional). ?
-implementing all six makes a pure restful but violating one or more doesn't mean your app isn't restful. 
 ---
 MVC
 Java Server Pages equivalent to Razor in C#
----
-Javalin: lightweight web framework for Kotlin and Java. Supports handling requests from client and generates the responses. Is built on Jetty server. jetty is a container for javalin. it does http calls suitable for developing rest apis. 
 ---
 CORS: cross origin resource server

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>Fetch demo</title>
 </head>
 <body>
@@ -14,53 +15,12 @@
     <input type="text" id="txtUserId">
     <br>
     <p id='status'></p>
-    <div id="results"></div>
+    <div id="results" class='container'></div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-  <script>
-    let btnGetUsers = document.querySelector('#btnGetUsers');
-    let btnGetUser = document.querySelector('#btnGetUser');
-    let status = document.querySelector('#status');
-    let results = document.querySelector('#results');
-
-    btnGetUsers.addEventListener('click', ()=>{
-      let url = "https://api.github.com/users";
-      fetch(url)
-        .then(response => response.json())
-        .then(response => showUsers(response));
-    });
-
-    btnGetUser.addEventListener('click', ()=>{
-      let id = document.querySelector('#txtUserId').value.trim();
-      if (!id || !Number.parseInt(id)) { 
-        results.innerHTML = '<span style="color: red">Id field cannot be empty</span>';
-        return;
-      }
-      let url = "https://api.github.com/user/"+id;
-      fetch(url)
-        .then(response => response.json())
-        .then(response => showUser(response));
-    });
-
-    function showUsers(r) {
-      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
-      r.forEach(el => {
-        data += `<tr><td>${el.id}</td>`;          
-        data += `<td>${el.login}</td>`;
-        data += `<td><img src='${el.avatar_url}' alt="${el.login}'s avatar" height='100px' width='100px'/></td></tr>`;
-      });
-      data += '</table>';
-      results.innerHTML = data;
-    }
-
-    function showUser(r) {
-      let data = '<table border="1px"><tr><th>ID</th><th>Login name</th><th>Avatar url</th></tr>';
-      data += `<tr><td>${r.id}</td>`;          
-      data += `<td>${r.login}</td>`;
-      data += `<td><img src='${r.avatar_url}' alt="${r.login}'s avatar" height='100px' width='100px'/></td></tr>`;
-      data += '</table>';
-      results.innerHTML = data;
-    }
-  </script>
+  <script src="fetchdemo.js"></script>
 </body>
 </html>
