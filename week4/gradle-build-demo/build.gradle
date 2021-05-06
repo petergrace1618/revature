@@ -23,13 +23,13 @@ jar {
 //    archiveVersion =  '0.1.0'
     manifest {
         attributes(
-                'Main-Class': 'Dummy'
+                'Main-Class': 'main.Dummy'
         )
     }
 }
 
 task runjar(type: JavaExec) {
-    main = 'main.Demo'
+    main = 'main.Dummy'
     classpath = sourceSets.main.runtimeClasspath
 //    args 'appArg1' // args to main()
 }
