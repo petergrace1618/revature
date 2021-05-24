@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a1" class="com.app.model.Address">
+        <property name="aid" value="9000"/>
+        <property name="city" value="Mumbai"/>
+        <property name="zip" value="8000001"/>
+    </bean>
+    <bean id="t1" class="com.app.model.Team">
+        <property name="tid" value="2000"/>
+        <property name="teamName" value="India"/>
+    </bean>
+    <bean id="t2" class="com.app.model.Team">
+        <property name="tid" value="2001"/>
+        <property name="teamName" value="Mumbai Indians"/>
+    </bean>
+    <bean id="t3" class="com.app.model.Team">
+        <property name="tid" value="2002"/>
+        <property name="teamName" value="Royal Challengers"/>
+    </bean>
+    <bean id="t4" class="com.app.model.Team">
+        <property name="tid" value="2003"/>
+        <property name="teamName" value="Delhi Cricket Association"/>
+    </bean>
+
+    <bean id="p1" class="com.app.model.Player">
+        <property name="id" value="100"/>
+        <property name="name" value="Sachin R Tendulkar"/>
+        <property name="permanentAddress" ref="a1"/>
+        <property name="teamList">
+            <list>
+                <ref bean="t1"></ref>
+                <ref bean="t2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="a2" class="com.app.model.Address">
+        <property name="aid" value="9001"/>
+        <property name="city" value="Delhi"/>
+        <property name="zip" value="9000001"/>
+    </bean>
+
+    <bean id="p2" class="com.app.model.Player">
+        <property name="id" value="101"/>
+        <property name="name" value="Virat Kohli"/>
+        <property name="permanentAddress" ref="a2"/>
+        <property name="teamList">
+            <list>
+                <ref bean="t1"></ref>
+                <ref bean="t3"></ref>
+                <ref bean="t4"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="p3" class="com.app.model.Player">
+        <property name="id" value="102"/>
+        <property name="name" value="Rohith Sharma"/>
+        <property name="permanentAddress" ref="a1"/>
+        <property name="teamList">
+            <list>
+                <ref bean="t1"></ref>
+                <ref bean="t2"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>

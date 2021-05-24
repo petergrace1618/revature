@@ -1,0 +1,10 @@
+com/app/model/Artist.java
+ com.app.model.Artist
+com/app/model/Manager.java
+ com.app.model.Manager
+com/app/model/Album.java
+ com.app.model.Album
+com/app/model/Player.java
+ com.app.model.Player
+com/app/main/Main.java
+ com.app.main.Main

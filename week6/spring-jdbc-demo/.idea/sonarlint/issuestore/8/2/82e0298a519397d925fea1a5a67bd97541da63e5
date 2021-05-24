@@ -1,0 +1,16 @@
+
+w
+java:S14882"aImmediately return this expression instead of assigning it to the temporary variable "employees".(íàôÔ
+{
+java:S1488O"`Immediately return this expression instead of assigning it to the temporary variable "employee".(Ê‚¾•ûÿÿÿÿ
+w
+java:S1488W"aImmediately return this expression instead of assigning it to the temporary variable "employees".(íàôÔ
+v
+java:S1450"YRemove the "dataSource" field and declare it as a local variable in the relevant methods.(â–ŠĞ8Ù”†Å˜/
+X	java:S125"<This block of commented-out lines of code should be removed.(àØãŒ8é”†Å˜/
+R
+java:S1854G"7Remove this useless assignment to local variable "sql".(Ù¯­€úÿÿÿÿ
+A
+java:S1168]"+Return an empty collection instead of null.(¥¹ï
+C
+java:S1481G"(Remove this unused "sql" local variable.(Ù¯­€úÿÿÿÿ

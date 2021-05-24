@@ -9,6 +9,6 @@ public interface EmployeeService {
     public Employee getEmployeeById(int id);
     public Employee updateEmployee(Employee employee);
     public List<Employee> getEmployees();
-    public List<Employee> getEmployeesByAge(int age);
+//    public List<Employee> getEmployeesByAge(int age);
     public void deleteEmployee(int id);
 }

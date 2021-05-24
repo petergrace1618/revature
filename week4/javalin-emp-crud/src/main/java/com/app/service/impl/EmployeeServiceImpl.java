@@ -36,11 +36,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new ArrayList<>(map.values());
     }
 
-    @Override
-    public List<Employee> getEmployeesByAge(int age) {
-
-        return map.values().stream().filter(emp->emp.getAge()==age).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<Employee> getEmployeesByAge(int age) {
+//
+//        return map.values().stream().filter(emp->emp.getAge()==age).collect(Collectors.toList());
+//    }
 
     @Override
     public void deleteEmployee(int id) {

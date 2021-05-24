@@ -18,14 +18,19 @@ test {
     useJUnitPlatform()
 }
 
+apply plugin: 'java'
+
 jar {
-//    archiveBaseName = 'gradle-build-demo'
-//    archiveVersion =  '0.1.0'
     manifest {
         attributes(
                 'Main-Class': 'main.Dummy'
         )
     }
+}
+
+// https://www.tutorialspoint.com/gradle/gradle_build_a_java_project.htm
+// RUN THIS WITH "./gradlew task testAndGo". IT WILL RUN TESTS AND THEN COMPILE/RUN THE JAVA!
+task testAndGo(dependsOn: ['test','runjar']){
 }
 
 task runjar(type: JavaExec) {
@@ -34,3 +39,8 @@ task runjar(type: JavaExec) {
 //    args 'appArg1' // args to main()
 }
 
+task helloWorld {
+    doLast {
+        println("Hello, World!")
+    }
+}
