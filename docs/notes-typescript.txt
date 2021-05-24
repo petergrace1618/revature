@@ -1,0 +1,59 @@
+=====
+Node
+=====
+made from google-chromium v8 engine with added event loop and low-level i/o api
+npm has 3 components
+	cli interacts with remote register
+	like maven manages dependencies and versions through package.json (like pom.xml)
+	it installs packages in folder called node_module in ouur angular application.
+angular is front-end framework that uses typescript to create web applications
+browsers only understand JS so we transpile typescript into js. node and npm performs this compilation. 
+
+typescript
+open-source developed by microsoft. supports OOP. can't do polymorphism well. particularly method overloading. It's a superset of JS, i.e. it's like js except it has more methods. strictly typed. 
+
+
+CLI
+---
+to install typescript
+npm install -g typescript
+
+#to allow tsc to run in vscode console
+#run powershell as administrator and run command
+set-ExecutionPolicy RemoteSigned
+#to undo:
+set-ExecutionPolicy undefined
+#transpile to js when file changes
+tsc <path> -w 
+# choose version of js to transpile to
+tsc -t es2015 <path> -w
+
+#install the cli of angular
+npm install -g @angular/cli
+ng version
+ng new <project-name>
+ng serve
+
+=======
+Typescript
+=======
+let variable:type;
+let variable:any;
+let variable:type | type;
+let v:(string | number)[];
+let v:any[];
+let v:boolean|string[];
+v = true;
+v = ["",""];
+//tuples
+let tuple:[string,boolean,number];
+tuple = ["",true,1];
+//enums
+enum Engine
+{
+OFF = 0,
+ON = 1, 
+REVERSE = -1
+}
+
+

@@ -1,0 +1,326 @@
+Spring framework
+======
+spring 5 is latest version, comes w/ reactive programming style. owned by portal. created by rob johnson in 2002 who was enterprise java beans developer. open source framework written in java. one reason it became popular is because of dependency injection using inversion of control (IOC). it's complete end-to-end enterprise application development framework in one place. complete e2e solution. integrates backend, testing, etc. complete application development solution.
+spring was apache's jakarta project.
+
+Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications.
+-https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html
+
+in conecting to jdbc: register driver, open connection, create statement, execute query, process result set, close connection. also must handle exceptions: ClassNotFoundException, SQLException. 
+Spring handles everything except create query and process results. 
+Spring w/ JDBC: 
+
+any class managed by spring is known as bean.
+
+IOC- inversion of control container
+any pojo class given to spring to maintain its lifecycle, driver, connection is called a bean. 
+classes and metadata are given to IOC. dependency injection using inversion of control. 
+
+spring modules
+-spring core
+-spring test
+-spring web MVC, SOAP, RESTful
+-spring cloud
+-spring security
+-spring mobile
+-spring AOP (aspect oriented programming), handles cross-cutting concerns e.g. logging, tracing, exception handling. 
+-spring DAO, gives solutions for ORM, JPA, Hibernate, JDBC, OXM (Object XML Mapping, mapping from pojo to xml and back)
+
+spring boot: not a module. is rapid application development tool for microservices.
+
+lifecycle of spring bean
+-container started 
+-bean instantiated via init() method 
+	use @PostConstruct annotation
+	<bean id='bean' class='example.Bean' init-method='init'/>
+	public class Bean {
+		public void init()
+	}
+	same as (not recommended)
+	<bean id='bean' class='example.Bean'/>
+	public class Bean implements InitializingBean { 
+		public void afterPropertiesSet() 
+	}
+-dependencies injected 
+-custom init() method 
+-custom utility method 
+-destroy() and custom destroy() (optional) method 
+	use @PreDestroy annotation
+	<bean id='bean' class='example.Bean' destroy-method='cleanup'/>
+	public class Bean {
+		public void cleanup()
+	}
+	same as (not recommended)
+	<bean id='bean' class='example.Bean'/>
+	public class Bean implements DisposableBean { 
+		public void destroy() 
+	}
+
+<beans default-init-method='init' default-destroy-method='destroy'>
+specifies application wide default naming convention obviating the need for bean-specific init-method, destroy-method.
+if multiple lifecycle mechanisms are used the order is as follows:
+@PostConstruct, @PreDestroy
+afterPropertiesSet(), destroy() defined in InitializingBean, DisposableBean
+custom init(), destory() defined in init-method, destroy-method
+------
+2 types of IOC containers
+- BeanFactory
+- ApplicationContext, extends BeanFactory
+
+differences between BeanFactory and ApplicationContext
+---
+BeanFactory is lazy by default
+doesn't support annotation based configuration and multi-configuration only xml
+no web app support
+doesn't support internationalization
+supports singleton and prototype scopes
+backwards compatible with older versions of spring
+
+ApplicationContext is eager by default 
+(<bean lazy-init='true'> specifies lazy initialization of bean)
+supports multi-configuration(int src path, class path, web, and annotation)
+comes with web application context support
+supports all scopes
+modular programming
+---
+2 ways of configuring spring bean objects: xml, java with annotation
+
+spring bean scopes
+- singleton (default), stateless beans
+- prototype, stateful beans 
+web scopes
+- request, per request: get, post, etc
+- session, per user, time between login/logout
+- global
+
+type of dependency injection
+- constructor injection, for immutable objects
+- setter injection, for mutable objects
+- field injection using autowiring (@Autowired)
+- look-up method injection, applies dependency injection using pre-defined method in the class. for re-usability
+
+<!-- boilerplate bean definition -->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+</beans>
+
+----
+Annotations
+@Bean(name="")
+@Configuration
+@Lazy
+@Scope("prototype")
+@Lookup
+@Autowired
+----
+
+AOP - Aspect Oriented Programming
+deals with crosscutting concerns in application: logging, exception handling, tracing, transaction management
+follows proxy design pattern
+Advices: before execution, after, around(before and after)
+
+design patterns in Spring 
+- Core: DI using IOC, Lazy/Eager loading, 
+- JDBC: Template pattern
+- AOP: proxy pattern
+
+aspect: an action
+joinpoint: point of execution in the program. e.g. a method (before, after, throwing). 
+ProceedingJoinpoint: (around)
+pointcut: regex or expression that's helpful for joinpoint
+advices: associated with pointcut expression and runs at any joinpoint matched by pointcut.
+
+class A{
+void m1(){}
+void m2(){}
+void m3(){}
+}
+
+Class B {
+void b1(){}
+void b2(){}
+}
+
+class AOP {
+@Before(joinpoint("m1"))
+public void beforeAdvice() { ... }
+@After(joinpoint("b1"))
+public void afterAdvice() {}
+}
+
+beforeAdvice gets called on joinpoints matching pointcut "m1" 
+AspectJ: pointcut language for pointcut
+
+Spring WEB MVC
+==============
+MVC1 (FrontController Design Pattern)
+----
+Controller was done by Servlet. .java files.
+View: JSP. .jsp files. Java and HTML
+Model: POJO
+
+MVC2
+----
+FrontController > DispatcherServlet. Acts as front controller for entire spring web MVC application. 
+Sends request to Handler Mapping. /
+
+Annotations
+----
+StereoType Annotations. singleton by default and thread safe
+@Component - any bean managed by IOC container.
+	@Controller - used for typical web MVC apps where view is controlled by Spring itself
+	@RestController - combination of @Controller & @ResponseBody where it is suitable for creating RESTful app where view is managed by client application.
+	@Service
+	@Repository
+	each one has its own particular exception handing mechanism
+
+Handling Requests
+----
+@RequestMapping. Handles any kind of HTTP request
+	@GetMapping, @PuMapping, @PatchMapping, @PostMapping, @DeleteMapping
+
+@RequestParam("id") e.g. /player?id=100 also called Query Parameter
+@PathVariable /player/{id}
+@RequestBody - does handshake with @ResponseBody
+
+@ExceptionHandler - supported with AOP
+
+Java EE Web Apps
+-----
+web.xml - deployment descriptor. every jee web app has web.xml. gives all config for web app. e.g. specifies welcome page. 
+==========
+Steps to create spring web mvc app
+----
+0. create gradle project, add dependencies, etc.
+1. in web.xml make entry for DispatcherServlet with identifier e.g. "hello" 
+2. we create hello-servlet.xml in path as web.xml. hello-servlet.xml acts as spring bean IOC container. 
+3. create package for controller, make entry for package in hello-servlet.xml
+4. create folder for views, and make entry for folder in hello-servlet.xml
+5. add any other specific bean configuration, e.g. jdbc, hibernate, aop, security in hello-servlet.xml
+6. create java class with appropriate spring web mvc annotations, and start handling requests and generate responses.
+-----
+0. Create normal gradle project and add dependencies
+- File > new > gradle project > project name > next > override workspace settings > next > finish
+	implementation group: 'org.springframework', name: 'spring-web', version: '4.3.18.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.18.RELEASE'
+	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+- right-click build.gradle > Gradle > Refresh Gradle Project 
+
+1. Add entry point for DispatcherServlet in web.xml
+- Create WebContent/WEB-INF folder
+	right-click project > properties > project facets > dynamic web module > apply and close
+- Create web.xml
+	Right-click project > Java EE Tools > Generate Deployment Descriptor Stub 
+	Add entry in web.xml
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+2. Create MyServelt-servlet.xml in same path as web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+</beans>
+3. create package for controller (com.app.controller or just com.app where controller, model, service, and repository will reside), and make entry for package in hello-servlet.xml
+	<context:component-scan base-package="com.app"/>
+4. create folder for views in WebContent/WEB-INF, 
+- Create JSP file
+	Right-click views folder > New > Other... > Web > JSP File 
+- Create entry for folder in hello-servlet.xml, 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	For a URI like "/welcome" it looks for a file named "/WEB-INF/views/welcome.jsp"
+- Create controller
+	Right-click com.app.controller package > New > Class 
+	Add @Controller to class, @RequestMapping methods that handle routes
+	@RequestMapping("/")
+	public String showWelcome() {
+		return "welcome";
+	}
+
+======
+Setup Tomcat server
+-----
+- Add server
+Switch to Java EE Perspective (button in upper right corner)
+Download Apache Tomcat 9.0. https://tomcat.apache.org/download-90.cgi
+In Servers Tab at bottom of screen > click link to create new server
+Choose Tomcat 9.0 > next > Choose folder > next > finish
+- Start server
+	Right-click on server > start (allow access in windows firewall popup)
+
+	Right-click project > properties > Deployment Assembly > Add... > Java Build Path Entries > apply and close
+- Right-click on project > Run on server
+
+=====
+Create Spring Web Restful app w/o web.xml
+- create gradle same as creating spring web mvc app
+	Including: Right-click project > properties > Deployment Assembly > Add... > Java Build Path Entries > apply and close
+- Create IOC container for Beans
+	Right-click src/main/java > new class > package com.app.config, name SpringBeanConfiguration
+	In class file:
+	@Configuration
+	@EnableWebMvc
+	@ComponentScan(basePackages="com.app")
+	public class SpringBeanConfiguration {
+		// this creates an IOC container for Beans
+	}
+- Create initializer class. Replaces web.xml
+	Right-click com.app.config > new java class > name WebInitializer
+- Create controller in com.app.controller 
+
+implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+
+Spring Boot
+------
+not a module in spring framework
+rapid application development tool from pivotal for Microservices app development.
+convention over configuration. 
+spring boot = spring f/w - XML configuration - initial configuration (configure dispatcher servlet etc) + auto configuration + embedded server/embedded DBs
+spring boot has many spring starter projects. 
+actuator gives various rest endpoints to check on state of application. e.g. dev tools
+initializr helps create application. (start.spring.io) let's you choose language (java (8,11,16, kotlin, groovy), supports build tools (gradle, maven), packaging (jar, war), dependencies
+spring boot allows us to start applications from simple public static void main annotated with @SpringBootApplication which is combination of @Configuration, @EnableWebMvc, @ComponentScan
+configuration can be written in application.properties/.yaml file
+embedded databases: for SQL, H2; for NoSQL, mongoDB. H2 is for development only.
+
+@Repository - way to interact and perform SQL or NOSQL operations associated with DB. provides many predefined implementations which we can easily use to interact with DB.
+========
+Transaction management @Transactional
+On a class is applicable to all methods in class.
+
+If you use @Configuration annotation (class or method level) you can also use @Transactional
+
+Transaction configuration 
+1. Propagation type(Required (default), Supports, Mandatory, Require_new, Not_Supported, Never, Nested)
+2. Isolation levels (dirty_read, serializable, non repeatable read), phantom read)
+3. Timeout
+4. Readonly flag
+5. Rollback rules
+e.g. @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+@Transactional(isolation=Isolation.SERIALIZABLE
+
+//Case: have to rollback when there's an exception
+@Transactional(rollbackFor={SQLException.class})
+public Player createPlayer(Player player) {
+	playerRepo.save(player);
+}
+// if player is not there transaction will be rolled back
+

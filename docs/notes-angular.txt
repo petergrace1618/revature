@@ -1,0 +1,150 @@
+=======
+Angular
+=======
+
+
+The Angular Flow
+----------------
+
+Angular loads angular.json. The object defined in angular.json has a property called "projects" whose value is an object that has a property with the same name as the application and whose value is an object that has a property called "architect" whose value is an object that has a property called "build" whose value is an object that has a property called "options" whose value is an object that has a property called "main" whose value is the path to the entry point of the angular application which is by default called main.ts. Angular then runs main.ts. 
+
+main.ts calls the method bootstrapModule with an argument named AppModule which is imported from app.module.ts. In app.module.ts the class AppModule is defined with the decorator @NgModule to which is passed an object which refers to an AppComponent class which is imported from app.component.ts. The AppComponent class is defined with the decorator @Component to which is passed an object with a "selector" property that specifies a custom HTML tag named "app-root" by default, while the "templateUrl" property specifies the path to the HTML template used to render the component and is has a value of app.component.ts by default. 
+When Angular serves the application, elements in index.html that match the selector (specified in the @Component decorator of the AppComponent definition) become instances of the component. 
+
+-angular.json:
+main.ts is entry point to application. 
+projects.<app-name>.architect.build.options.main: "main.ts"
+
+-main.ts:
+platformBrowserDynamic().bootstrapModule(AppModule)
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+
+-app.module.ts: AppModule
+@NgModule({...bootstrap: [AppComponent]})
+export class AppModule { }
+created with @NgModule decorator. the bootstrap property passed to @NgModule specifies the first component to load.
+
+-app.component.ts:
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'first-angular-project';
+}
+
+The selector property of the object passed to the @Component decorator defines the custom html tag which is where the component is inserted into index.html. HTML elements in your template that match this selector become instances of the component. templateUrl gives the path of the HTML template used to render the component. 
+
+-src/index.html
+When Angular serves the application, it opens index.html. When it encounters <app-root> it loads the component template (defined in app-component.ts as app.component.html) 
+
+-app.component.html
+The HTML template for the component
+
+------------
+#install the cli of angular
+npm install -g @angular/cli
+ng version
+ng new <project-name>
+ng serve
+
+# automatically build components?
+ng generate component hero-list
+
+ng serve hero-list.component.ts
+ng serve ./hero-list/ hero-list.component.ts
+ng generate service
+
+e2e folder - end to end testing and testing configuration files
+Node modules - holds modules for entire workspace.
+src - contains all source files, logic, data and assets
+app folder - app component files (HTML, CSS, TS, and optionally speck file)
+app.module.ts - defines root module and helps angular assemble the application. dictates all dependencies that angular needs to run all components.
+assets folder - images, audio, video, etc for app
+environments folder - build configuration options for target environments
+index.html - main html page that is served when site is visited. angular automatically adds all js, css files when app is built (webpack-bundling).
+main.ts - main entry point of app. compiles the app with JIT compiler and bootstrap the app's root model to run the browser.
+polyfills.ts - provides polyfill scripts for older browser support
+style.css - provides css files that applies to project-name
+
+angular decorator
+similar to java notation
+adds metadata on class, method, variable
+defined with @
+decorators:
+class 
+method - used to observe, modify, and replace method definition.
+property  - changes default definition or modify object instance. e.g. add new properties or change data. 
+accessor - observe, modify, replace accessor definition. 
+
+to create new component create new folder
+
+
+data binding
+process to share /project values from conponents TS into components html file or vice versa
+way to communicate/ share data between our ts and html inside component.
+one way data binding
+binds data from component to the view or view to the component
+its uni-directional i.e. change in variable defined in the class will get  reflected on html
+interpolation: {{}}. evaluates expression inside. reference variable in component ts file or simple operations
+property binding: syntax is "[]". binds attributes of html element to component variable/state
+any changes to ts file gets reflected on html file
+event binding. syntax is {}. binds dom events
+
+angular directives
+manipulates dom, change structure. acts as marker on dom elementso angular can change dom element appearance, behavior, layout.
+most directives are indicated by "ng"
+custom directives are made with @Directive
+stucture directive. manipulates structure of dom element. *ngIf, *ngFor, *ngSwitch
+attribute directive - changes look/behavior of dom elements. ngStyle
+	ngStyle changes style based on condition
+
+component lifecycle
+each component managed by angular framework. creates component, renders, then create/render child components. process changes to data bound properties, finally destroy component.
+lifecycle hooks. 
+	constructor first to get executed before other lifecycle hook events
+	ngOnChanges() - called whenever one or more data bound properties change
+	ngOnInit() - called once to initialize component, set input properties
+	ngDoCheck() - called during all change-detection that angular can't detect on its own
+	ngAfterContentInit() - called once after angular performs any content projection onto component view
+	ngAfterContentChecked() - invoked after each time angular checks for content project into component
+	ngAfterViewInit() - invoked after angular initializes component's view and child's view
+	ngAfterViewCheckout() - invoked after each time angular checks for content projected into components
+	ngOnDestroy() - invoked after angular destroys directive or component
+
+
+open source framework typescript based front-end framework
+webpack bindling
+disadvantages
+	takes long time on initial page load. not good for mobile
+
+Angular Universe
+pre-rendering solution of angularby fefault, angular dynamically fills in content of webpage so at beginning its just a blank page until everything is fully loaded
+render initial html /css shown to user ahead of ime either at build time or when user requests page
+ahead of time compiler aot. converts html/ts file code into officient js during build phase. 
+uses decoratorsto extract metdata to interpret parts of application that anjular is supposed to manage.
+advantages: startup performance improvements of application. better user-experience especially for low internet speed users. better compatibility with seo. angular universe is static version of app that is easily searchable by web crawler. 
+
+2 way data binding
+allows binding data from both compnent to veiw (HTML) and the view to component. achieved by combining both property binding and event binding together. syntax is [()]. angular uses ngModel directive to achieve 2way binding on html <forms> element. its a directive that binds user value (from forms) in variable which can be used later.
+
+pipes
+provide way to transform values before it's displayed. transform is you can change modify or reformat the values into thwat you want it to be.
+used in conjunction with interpolation. syntax is {{targetValue | pipeType}}
+angular pipe api gives a list
+
+services
+class thats not dependent on any component. used to share data/logic/function across components. can bge used to encapsulate external interactions (httpClient - request from external server). services if used properly will be singleton. is injected into multiple components and those components can then utilize the functions
+
+dependency injection
+desing pattern where declare dependencies in contructor of dependent class. in the case of angular framework, Angular Injector will handle instantiating the class and its dependencies and providing dependencies in sia ddependent class constructor.
+any class with component and injector class decorators will be handled by angular injector. in this case we are giving up control over part of application to angular injector. 
+
+routing
+provides way to navigate from one view to another view in application. allow us to create single page application (spa). must define paths that wehn called upon will quickly swap in that component assigned to the path without refreshing the page.
+
+lazy loading
+by default, ngModules are eager loaded: as soon as app loads it will get all the ngModules. can slow loading process of application

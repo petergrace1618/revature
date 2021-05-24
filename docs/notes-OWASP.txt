@@ -1,0 +1,32 @@
+OWASP
+=====
+Insufficient Logging and Monitoring
+https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html
+
+Injection
+https://cwe.mitre.org/data/definitions/77.html
+
+Cross-Site Scripting XSS
+https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+
+Broken Authentication
+https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+
+Sensitive Data Exposure
+https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html
+
+XML External Entities XXE
+https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+
+Broken Access Control
+SAST - Static Application Security Testing. Scans source code for vulnerabilities the developer may introduce.
+DAST - Dynamic Application Security Testing. Scans web applications, normally from the outside, to look for security vulnerabilities such as Cross-site scripting, SQL Injection, Command Injection, Path Traversal and insecure server configuration.
+https://owasp.org/www-community/Vulnerability_Scanning_Tools
+Authorization is the process where requests to access a particular resource should be granted or denied. It should be noted that authorization is not equivalent to authentication - as these terms and their definitions are frequently confused. Authentication is providing and validating identity. The authorization includes the execution rules that determine which functionality and data the user (or Principal) may access, ensuring the proper allocation of access rights after authentication is successful.
+https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html
+
+Security Misconfiguration
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-123.pdf
+
+Insecure Deserialization
+https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html

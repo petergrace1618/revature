@@ -1,0 +1,113 @@
+Things to Research
+==================
+subject
+lifecycle hooks
+bdd jasmine karma
+forms reactive v template driven
+
+P2
+---
+frontend: html, css, bootstrap, angular, angular materials
+backend: java8, spring, hibernate/JPA, swagger
+db: postgresql/h2
+devops: jenkins, git, gradle
+aws: rds, s3, ec2
+testing: junit, mockito for backend and jasmine, karma for frontend. Code coverage (>80%), sonarqube, jacoco(java code coverage), testng, postman
+agile scrum: user scrum board like trello or jira for planning/execution
+start date: may 17
+project presentation: may 31/june. team based presentation, powerpoint, followed by demo.
+note: project2 should have a devops pipeline and run on aws
+common: presentation, db, typescript classes, java classes
+create github org, create scrum board, and add vinay. create README for project including tech stack, product name. 6-7 lines.
+
+Due 5/17
+---
+project description
+title, product name
+github org, add vinay
+decide on scrum tool
+
+1st task: java reflection api
+---
+required annotations on a model in hibernate
+
+in hibernate what is a proxy
+repository layer in hibernate
+lazy/eager fetching
+
+TASK: wednesday 5/5
+1. create a free style project (jenkins)
+ - execute gradle build 
+ - execute gradle test
+2. install java 8, gradle, git
+- on ec2
+- clone the EMPCRUD API
+- run javelin app on ec2
+- test using postman...
+- install jenkins...
++ use ec2 instance link...
+=====
+create a jenkins project for executing gradle project.... gradle build, gradle test
+=====
+https://www.oracle.com/technical-resources/articles/javase/soa.html
+Service-Oriented Architecture (SOA) and Web Services: The Road to Enterprise Application Integration (EAI)
+========
+frontend
+	html
+	styles
+		css
+	scripts
+		js
+
+what's new in es6
+----
+1. Recreate the GitHub
+2. Perform all of the Request types with FAKE API
+3. Recreate the API  by picking one of them from public api link
+4. Beautify it, minimally
+
+using javalin
+1. create the endpoints in the backend. 
+	/employee /employee/:id /employees /employees/:age
+2. consume on postman first
+3. create js frontend	
+
+===
+know category of http status codes
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+*
+Mockito
+*
+design patterns: 
+creational: singleton, builder, factory 
+*
+QC
+default access modifier
+abstraction, abstract classes
+default in interface
+collections hierarchy
+generics
+how strings stored in memory: stored as char arrays. arrays are immutable. when string are concatenated, a new char array is allocated.
+functional interface defines a single abstract method and one of more default methods.
+order of overloading:
+======
+Vector, 
+how does Set prevent duplicates, 
+how does priority queue work
+how does priority queue compare with LinkedList
+Why to use a singleton
+
+2.Brush up Client - server architecture we learn last week and also on what is Web Services
+3.SOA(Service Oriented Architecture) -> This is Web Services itself but read about SOA
+4.Richardson Maturity Model
+5.What is HTML?
+6.HTML4 Vs HTML5
+7.New features of HTML5
+8.Explore few basic tags in HTML from w3schools.com
+9.Why CSS?
+
+difference between sax and dom parser
+js string functions
+create registration page
+use js and regex to validate
+http methods

@@ -1,0 +1,122 @@
+lexicon baltronicum
+A dictionary of buckish slang, university wit, and pickpocket eloquence
+======
+Jenkins in lecture
+week 4, day 3, 0:54
+
+pom.xml - project object model
+=======
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+apply plugin: 'java'
+// https://www.tutorialspoint.com/gradle/gradle_build_a_java_project.htm
+task testAndGo(dependsOn: ['test','runjar']){
+// RUN THIS WITH "./gradlew task testAndGo". IT WILL RUN TESTS AND THEN COMPLE/RUN THE JAVA!
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.example.Demo'
+        )
+    }
+//    run this by "./gradlew build" -> cd into the build/libs folder -> "java -jar gradle-cmd..."(the file there)
+}
+
+task runjar(type: JavaExec) {
+    main = 'org.example.Demo'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+test {
+    useJUnitPlatform()
+}
+//gradle test --tests package.testClassname
+task hey(dependsOn: 'helloWorld'){
+    doLast {
+        println 'Hey Sailor, this is groovy?'
+    }
+    //run with "./gradlew task hey"
+}
+
+task helloWorld {
+    doLast {
+        println("Hello, World!")
+    }
+}
+
+=======
+jenkins - a continuous integration server which manages and controls processes such as plan, code, build, test, deploy, operate and monitor in devops environment. Allows automation of process.
+
+# to install jenkins on ec2
+sudo yum update -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo yum install jenkins java-1.8.0-openjdk-devel -y
+sudo systemctl daemon-reload
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+------
+initial password for installation: d86138b140f54167a00feeb3703d3842
+if port 8080 is being used, run 
+java -jar httpPort=<OTHER PORT>
+=========
+To create jar file using gradle on command line
+- Add to gradle.build:
+jar {
+	manifest {
+		attributes 'Main-Class': 'GradleDemo'
+	}
+}
+- Navigate to project folder and run
+gradle build
+java -jar build/libs/{jar-file}
+https://www.360logica.com/blog/how-to-create-an-executable-jar-file-and-use-it-to-run-the-main-method/
+=========
+gradle build lifecycle: initialization, configuration, execution
+
+Developers CI w/ git > C Delivery to pipeline > Jenkins, build w/ gradle/maven, test unit cases w/ gradle with junit, deploy) > CT > test w/ automated test cases like selenium, cucumber and also code with sonar products > C Deployment > to product server where your app lives, you use tools like Docker/Kubernetes to containerize and deploy, C Monitoring of app where health status of app is checked and maintained > C Feedback for entire progress. 
+
+CT CD CD 
+==========
+Agile model
+
+agile is set of methods based on values and principles. scrum is an implementation of agile. 
+business analyst makes requirements, development team, testing team, and operations/infrastructure
+
+waterfall model (before Agile). development process of a new phase begins only after completion of previous phase. every phase is an input to next phase.
+	requirements
+	design
+	develop
+	test
+	deploy
+	review
+
+agile breaks product development into small iterative and incremental process model with focus on process adaptability and customer satisfaction by rapid delivery or working software product.
+requirements, design, develop, test, deploy, review
+
+benefits of agile:lower risk, more collaboration with customer
+
+popular agile methodologies
+scrum, lean, kanban, xp
+
+scrum pillars: transparency, inspection, adaptation
+
+product owner: key stakeholder. represents the client. 
+scrum master; team's resident facilitator. takes direction from product owner. helps team members follow best practices. conducts daily standup. 
+development team
+=======
+test coverage is the amount or percentage of the code base that has been tested.
