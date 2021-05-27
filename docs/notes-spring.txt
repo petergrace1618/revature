@@ -6,7 +6,7 @@ spring was apache's jakarta project.
 Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications.
 -https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html
 
-in conecting to jdbc: register driver, open connection, create statement, execute query, process result set, close connection. also must handle exceptions: ClassNotFoundException, SQLException. 
+in connecting to jdbc: register driver, open connection, create statement, execute query, process result set, close connection. also must handle exceptions: ClassNotFoundException, SQLException. 
 Spring handles everything except create query and process results. 
 Spring w/ JDBC: 
 
@@ -61,7 +61,7 @@ specifies application wide default naming convention obviating the need for bean
 if multiple lifecycle mechanisms are used the order is as follows:
 @PostConstruct, @PreDestroy
 afterPropertiesSet(), destroy() defined in InitializingBean, DisposableBean
-custom init(), destory() defined in init-method, destroy-method
+custom init(), destroy() defined in init-method, destroy-method
 ------
 2 types of IOC containers
 - BeanFactory
@@ -115,8 +115,8 @@ Annotations
 @Scope("prototype")
 @Lookup
 @Autowired
-----
 
+============
 AOP - Aspect Oriented Programming
 deals with crosscutting concerns in application: logging, exception handling, tracing, transaction management
 follows proxy design pattern
@@ -165,7 +165,7 @@ Model: POJO
 MVC2
 ----
 FrontController > DispatcherServlet. Acts as front controller for entire spring web MVC application. 
-Sends request to Handler Mapping. /
+Sends request to Handler Mapping.
 
 Annotations
 ----
@@ -180,7 +180,7 @@ StereoType Annotations. singleton by default and thread safe
 Handling Requests
 ----
 @RequestMapping. Handles any kind of HTTP request
-	@GetMapping, @PuMapping, @PatchMapping, @PostMapping, @DeleteMapping
+	@GetMapping, @PutMapping, @PatchMapping, @PostMapping, @DeleteMapping
 
 @RequestParam("id") e.g. /player?id=100 also called Query Parameter
 @PathVariable /player/{id}
@@ -296,7 +296,7 @@ convention over configuration.
 spring boot = spring f/w - XML configuration - initial configuration (configure dispatcher servlet etc) + auto configuration + embedded server/embedded DBs
 spring boot has many spring starter projects. 
 actuator gives various rest endpoints to check on state of application. e.g. dev tools
-initializr helps create application. (start.spring.io) let's you choose language (java (8,11,16, kotlin, groovy), supports build tools (gradle, maven), packaging (jar, war), dependencies
+initializr helps create application. (start.spring.io) lets you choose language (java (8,11,16, kotlin, groovy), supports build tools (gradle, maven), packaging (jar, war), dependencies
 spring boot allows us to start applications from simple public static void main annotated with @SpringBootApplication which is combination of @Configuration, @EnableWebMvc, @ComponentScan
 configuration can be written in application.properties/.yaml file
 embedded databases: for SQL, H2; for NoSQL, mongoDB. H2 is for development only.
@@ -315,7 +315,7 @@ Transaction configuration
 4. Readonly flag
 5. Rollback rules
 e.g. @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
-@Transactional(isolation=Isolation.SERIALIZABLE
+@Transactional(isolation=Isolation.SERIALIZABLE)
 
 //Case: have to rollback when there's an exception
 @Transactional(rollbackFor={SQLException.class})

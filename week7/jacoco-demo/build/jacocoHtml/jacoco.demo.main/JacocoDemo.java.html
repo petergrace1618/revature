@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JacocoDemo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">jacoco-demo</a> &gt; <a href="index.source.html" class="el_package">jacoco.demo.main</a> &gt; <span class="el_source">JacocoDemo.java</span></div><h1>JacocoDemo.java</h1><pre class="source lang-java linenums">package jacoco.demo.main;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class JacocoDemo {</span>
+    public static int getInt() {
+<span class="nc" id="L7">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L8">        int n = 0;</span>
+<span class="nc" id="L9">        boolean valid = false;</span>
+<span class="nc" id="L10">        String s = &quot;&quot;;</span>
+        do {
+            try {
+<span class="nc" id="L13">                s = scanner.nextLine();</span>
+<span class="nc" id="L14">                n = Integer.parseInt(s);</span>
+<span class="nc" id="L15">                valid = true;</span>
+<span class="nc" id="L16">            } catch (NumberFormatException e) {</span>
+                // -9223372036854775808L, 9223372036854775807L
+<span class="nc" id="L18">                System.out.println(&quot;Please enter a number between &quot;+Integer.MIN_VALUE+&quot; and &quot;+Integer.MAX_VALUE);</span>
+<span class="nc" id="L19">            }</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        } while(!valid);</span>
+<span class="nc" id="L21">        return n;</span>
+    }
+
+    public static boolean isPrime(int n) {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (n &lt;= 3)</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            return n &gt; 1;</span>
+<span class="fc bfc" id="L27" title="All 4 branches covered.">        if ((n % 2 == 0) || (n % 3 == 0))</span>
+<span class="fc" id="L28">            return false;</span>
+<span class="fc" id="L29">        int i = 5;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        while (i * i &lt;= n) {</span>
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">            if ((n % i == 0) || (n % (i + 2) == 0))</span>
+<span class="nc" id="L32">                return false;</span>
+<span class="fc" id="L33">            i += 6;</span>
+        }
+<span class="fc" id="L35">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

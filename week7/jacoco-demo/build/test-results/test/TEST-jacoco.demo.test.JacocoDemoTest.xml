@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jacoco.demo.test.JacocoDemoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-05-27T06:37:42" hostname="IAMYOURUNDEROOS" time="0.12">
+  <properties/>
+  <testcase name="isPrimeInputPrime()" classname="jacoco.demo.test.JacocoDemoTest" time="0.08"/>
+  <testcase name="isPrimeInputComposite()" classname="jacoco.demo.test.JacocoDemoTest" time="0.009"/>
+  <testcase name="isPrimeInputLessThan2()" classname="jacoco.demo.test.JacocoDemoTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
